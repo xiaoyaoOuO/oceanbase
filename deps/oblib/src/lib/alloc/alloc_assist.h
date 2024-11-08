@@ -48,6 +48,7 @@
 #define STRCSPN(s, reject) strcspn(s, reject)
 #define STRTOK(str, delim) strtok(str, delim)
 #define STRTOK_R(str, delim, saveptr) strtok_r(str, delim, saveptr)
+#define STRCAT(dest, src) strcat(dest, src)
 
 static const uint32_t ACHUNK_PRESERVE_SIZE = 17L << 10;
 

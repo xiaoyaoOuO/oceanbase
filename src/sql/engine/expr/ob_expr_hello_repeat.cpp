@@ -98,7 +98,7 @@ namespace oceanbase
             }
             else
             {
-                int64_t tot_length = hello_len;
+                int64_t tot_length = hello_len * count;
                 char *buf = static_cast<char *>(allocator.alloc(tot_length));
                 if (OB_ISNULL(buf))
                 {
@@ -107,7 +107,11 @@ namespace oceanbase
                 }
                 else
                 {
-                    MEMCPY(buf, hello_ob, hello_len);
+                    MEMCPY(buf, hello_ob, hello_len + 1);
+                    for (int i = 2; i <= count; i++)
+                    {
+                        STRCAT(buf, hello_ob);
+                    }
                     output.assign_ptr(buf, static_cast<int32_t>(tot_length));
                 }
             }
