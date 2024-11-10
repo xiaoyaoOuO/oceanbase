@@ -98,7 +98,7 @@ namespace oceanbase
             }
             else
             {
-                int64_t tot_length = hello_len * count;
+                int64_t tot_length = hello_len * count + 1;
                 char *buf = static_cast<char *>(allocator.alloc(tot_length));
                 if (OB_ISNULL(buf))
                 {
